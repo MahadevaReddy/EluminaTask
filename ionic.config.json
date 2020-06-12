@@ -1,5 +1,7 @@
 {
   "name": "EluminaTask",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

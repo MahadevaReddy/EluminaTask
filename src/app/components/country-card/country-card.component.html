@@ -1,0 +1,33 @@
+<ion-card>
+  <img *ngIf="country.flag" src="{{country.flag}}" alt="ion">
+  <img *ngIf="!country.flag" src="../../../assets/shapes.svg" alt="ion">
+  <ion-card-header>
+    <ion-card-title>{{country.name}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="font-size: 15px;font-weight: bold;" center text-center>
+          <div>Capital</div>
+        </ion-col>
+        <ion-col style="font-size: 15px;font-weight: bold;" center text-center>
+          <div>Region</div>
+        </ion-col>
+        <ion-col style="font-size: 15px;font-weight: bold;" center text-center>
+          <div>Language</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col center text-center>
+          <div>{{country.capital}}</div>
+        </ion-col>
+        <ion-col center text-center>
+          <div>{{country.region}}</div>
+        </ion-col>
+        <ion-col center text-center>
+          <div>{{country.nativeName}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

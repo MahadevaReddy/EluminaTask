@@ -1,0 +1,10 @@
+<ion-grid style="padding: 10px;">
+  <ion-row *ngFor="let item of details | keyvalue" style="border: 1px solid;">
+    <ion-col col-4 style="text-transform: capitalize; border-right: 1px solid;" class="ion-align-self-start">
+      {{item.key}}
+    </ion-col>
+    <ion-col col-8 class="ion-align-self-center">
+      <div>{{item.value}}</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
