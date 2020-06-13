@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 
+import { Network } from '@ionic-native/network/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
+
 import { ComponentsModule } from './components/components.module';
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +32,9 @@ import { ComponentsModule } from './components/components.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
-    SQLitePorter
+    SQLitePorter,
+    Network,
+    Toast
   ],
   bootstrap: [AppComponent]
 })

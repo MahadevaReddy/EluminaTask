@@ -43,11 +43,16 @@ export class HomePage implements OnInit {
   async getCountries() {
     this.paginationList = [];
     this.renderList = [];
+    const len = this.totalCountriesList.length;
     await this.db.loadCountries().then((countries) => {
       this.renderList = countries;
       for (let i = 0; i < 10; i++) {
-        const element = this.renderList[i];
-        this.paginationList.push(element);
+        if (i <= len) {
+          const element = this.renderList[i];
+          this.paginationList.push(element);
+        } else {
+          console.log('No more data for loaoding!!');
+        }
       }
     });
   }
