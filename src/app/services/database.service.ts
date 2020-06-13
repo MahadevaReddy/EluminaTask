@@ -5,12 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Storage } from '@ionic/storage';
-export interface Dev {
-  id: number;
-  name: string;
-  skills: any[];
-  img: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +25,7 @@ export class DatabaseService {
           this.database = db;
           db.executeSql(
             'CREATE TABLE IF NOT EXISTS Countries(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,topLevelDomain TEXT,alpha2Code TEXT, alpha3Code TEXT, callingCodes NUMBER, capital TEXT, altSpellings TEXT, region TEXT, subregion TEXT, population NUMBER, latlng TEXT, demonym TEXT, area NUMBER, gini REAL, timezones TEXT, borders TEXT, numericCode TEXT, nativeName TEXT, flag TEXT, cioc TEXT)', [])
-            .then(() => {
-              //this.addCountries();
-            })
-            .catch(e => console.log(e));
+            .then(() => {}).catch(e => console.log(e));
           this.dbReady.next(true);
         }).catch(e => console.log(e));
     });
@@ -95,6 +86,7 @@ export class DatabaseService {
       'INSERT or IGNORE INTO Countries (name, topLevelDomain, alpha2Code, alpha3Code, callingCodes, capital, altSpellings, region, subregion, population, latlng, demonym, area, gini, timezones, borders, nativeName, numericCode, flag, cioc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', data)
       .then(() => {
         this.load = false;
+        this.loadCountries();
       }
     );
   }
